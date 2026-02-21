@@ -17,7 +17,7 @@
 <h1>📋 Live Orders</h1>
 <div id="orders"></div>
 
-<script>
+<!-- <script>
 async function loadOrders() {
   const res = await fetch("/orders");
   const orders = await res.json();
@@ -46,6 +46,50 @@ async function loadOrders() {
 
 loadOrders();
 setInterval(loadOrders, 5000); // refresh every 5 sec
+</script> -->
+
+
+<script>
+let previousOrderCount = 0;
+const notificationSound = new Audio("https://www.soundjay.com/buttons/sounds/button-3.mp3");
+
+async function loadOrders() {
+  const res = await fetch("/orders");
+  const orders = await res.json();
+
+  const container = document.getElementById("orders");
+  container.innerHTML = "";
+
+  if (orders.length > previousOrderCount) {
+    if (previousOrderCount !== 0) {
+      notificationSound.play();
+      alert("🔔 New Order Received!");
+    }
+  }
+
+  previousOrderCount = orders.length;
+
+  orders.reverse().forEach(order => {
+    const div = document.createElement("div");
+    div.className = "order";
+
+    div.innerHTML = `
+      <strong>Name:</strong> ${order.customerName} <br>
+      <strong>Table:</strong> ${order.tableNumber} <br>
+      <strong>Total:</strong> ₹${order.total} <br>
+      <strong>Time:</strong> ${order.time} <br>
+      <strong>Items:</strong>
+      <ul>
+        ${order.items.map(i => `<li>${i.name} x ${i.quantity}</li>`).join("")}
+      </ul>
+    `;
+
+    container.appendChild(div);
+  });
+}
+
+loadOrders();
+setInterval(loadOrders, 5000);
 </script>
 
 </body>
