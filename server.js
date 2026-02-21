@@ -8,12 +8,16 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname)));
 
 // Create orders.json if not exists
 if (!fs.existsSync("orders.json")) {
   fs.writeFileSync("orders.json", JSON.stringify([]));
 }
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 
 app.post("/order", (req, res) => {
   const newOrder = req.body;
