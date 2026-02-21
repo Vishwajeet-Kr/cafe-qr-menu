@@ -111,5 +111,23 @@
     ],
     "total": 160,
     "time": "21/2/2026, 11:58:49 pm"
+  },
+  {
+    "customerName": "Aryan",
+    "tableNumber": "2",
+    "items": [
+      {
+        "name": "Espresso",
+        "quantity": 1,
+        "price": 80
+      },
+      {
+        "name": "Veg Burger",
+        "quantity": 1,
+        "price": 110
+      }
+    ],
+    "total": 190,
+    "time": "22/2/2026, 12:46:03 am"
   }
 ]

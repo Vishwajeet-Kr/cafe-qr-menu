@@ -62,3 +62,9 @@ input {
   border-radius: 6px;
   border: 1px solid #ccc;
 }
+
+.cart button {
+  margin-left: 5px;
+  padding: 3px 6px;
+  font-size: 12px;
+}
