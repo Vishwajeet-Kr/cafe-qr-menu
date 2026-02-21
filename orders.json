@@ -1,0 +1,79 @@
+[
+  {
+    "customerName": "Aman",
+    "tableNumber": "9",
+    "items": [
+      {
+        "name": "Espresso",
+        "quantity": 1,
+        "price": 80
+      },
+      {
+        "name": "Cappuccino",
+        "quantity": 1,
+        "price": 120
+      },
+      {
+        "name": "Latte",
+        "quantity": 1,
+        "price": 140
+      },
+      {
+        "name": "Grilled Sandwich",
+        "quantity": 1,
+        "price": 130
+      }
+    ],
+    "total": 470,
+    "time": "21/2/2026, 11:31:18 pm"
+  },
+  {
+    "customerName": "adi",
+    "tableNumber": "7",
+    "items": [
+      {
+        "name": "Espresso",
+        "quantity": 2,
+        "price": 80
+      },
+      {
+        "name": "Latte",
+        "quantity": 1,
+        "price": 140
+      }
+    ],
+    "total": 300,
+    "time": "21/2/2026, 11:33:24 pm"
+  },
+  {
+    "customerName": "jay",
+    "tableNumber": "2",
+    "items": [
+      {
+        "name": "Veg Burger",
+        "quantity": 3,
+        "price": 110
+      }
+    ],
+    "total": 330,
+    "time": "21/2/2026, 11:35:33 pm"
+  },
+  {
+    "customerName": "aaaa",
+    "tableNumber": "22",
+    "items": [
+      {
+        "name": "Veg Burger",
+        "quantity": 1,
+        "price": 110
+      },
+      {
+        "name": "Oreo Shake",
+        "quantity": 1,
+        "price": 180
+      }
+    ],
+    "total": 290,
+    "time": "21/2/2026, 11:37:25 pm"
+  }
+]
