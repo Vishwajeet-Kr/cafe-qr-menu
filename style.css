@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: Arial, sans-serif;
   background: #f4f4f4;
   margin: 0;
@@ -67,4 +67,123 @@ input {
   margin-left: 5px;
   padding: 3px 6px;
   font-size: 12px;
+} */
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 20px;
+}
+
+/* Container */
+.container {
+  max-width: 500px;
+  margin: auto;
+}
+
+/* Cafe Title */
+.cafe-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #343a40;
+}
+
+/* Section Headings */
+h2 {
+  margin: 20px 0 10px;
+  color: #495057;
+  font-size: 20px;
+}
+
+/* Menu Item Card */
+.menu-item {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* Buttons */
+button {
+  background: #212529;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #343a40;
+  transform: scale(1.05);
+}
+
+/* Cart Section */
+.cart {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  margin-top: 30px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  position: sticky;
+  bottom: 10px;
+}
+
+.cart h2 {
+  margin-bottom: 15px;
+}
+
+.cart ul {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.cart li {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+/* Inputs */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  font-size: 14px;
+}
+
+/* Order Button */
+.order-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  font-weight: bold;
+  background: #28a745;
+  border-radius: 30px;
+}
+
+.order-btn:hover {
+  background: #218838;
 }
