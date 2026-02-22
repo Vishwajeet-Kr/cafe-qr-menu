@@ -1,76 +1,4 @@
-/* body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 500px;
-  margin: auto;
-  padding: 20px;
-}
-
-.cafe-title {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-h2 {
-  margin-top: 25px;
-}
-
-.menu-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 8px;
-}
-
-button {
-  background: black;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-.cart {
-  background: white;
-  padding: 15px;
-  margin-top: 30px;
-  border-radius: 10px;
-}
-
-.order-btn {
-  width: 100%;
-  margin-top: 10px;
-}
-
-input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.cart button {
-  margin-left: 5px;
-  padding: 3px 6px;
-  font-size: 12px;
-} */
-
-/* Global Reset */
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -82,13 +10,11 @@ body {
   padding: 20px;
 }
 
-/* Container */
 .container {
   max-width: 500px;
   margin: auto;
 }
 
-/* Cafe Title */
 .cafe-title {
   text-align: center;
   font-size: 28px;
@@ -97,14 +23,12 @@ body {
   color: #343a40;
 }
 
-/* Section Headings */
 h2 {
   margin: 20px 0 10px;
   color: #495057;
   font-size: 20px;
 }
 
-/* Menu Item Card */
 .menu-item {
   background: white;
   padding: 15px;
@@ -122,7 +46,6 @@ h2 {
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
 }
 
-/* Buttons */
 button {
   background: #212529;
   color: white;
@@ -139,7 +62,6 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Cart Section */
 .cart {
   background: white;
   padding: 20px;
@@ -164,7 +86,6 @@ button:hover {
   font-size: 14px;
 }
 
-/* Inputs */
 input {
   width: 100%;
   padding: 10px;
@@ -174,7 +95,6 @@ input {
   font-size: 14px;
 }
 
-/* Order Button */
 .order-btn {
   width: 100%;
   margin-top: 15px;
@@ -186,4 +106,111 @@ input {
 
 .order-btn:hover {
   background: #218838;
+} */
+
+
+
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #3b1f0f;
+  color: #f8f1e7;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 20px 20px 10px;
+  background: #5a2f14;
+}
+
+.logo {
+  width: 170px;
+  border-radius: 50%;
+  margin-bottom: 1px;
+}
+
+.header h1 {
+  margin: 5px 0 5px;
+}
+
+.tagline {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Sections */
+.section {
+  margin: 25px;
+}
+
+.section h2 {
+  color: #d6a04d;
+  letter-spacing: 2px;
+}
+
+.divider {
+  height: 2px;
+  background: #d6a04d;
+  margin: 8px 0 15px;
+}
+
+/* Menu Items */
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  background: #d6a04d;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #c08a37;
+}
+
+/* Cart */
+.cart {
+  background: #5a2f14;
+  padding: 20px;
+  position: sticky;
+  bottom: 0;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.order-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.note {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 3px;
+}
+
+.addon-title {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #d6a04d;
 }

@@ -1,96 +1,142 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Admin Orders</title>
-  <style>
-    body { font-family: Arial; padding: 20px; }
-    .order {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 8px;
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>Admin Orders</title>
+    <style>
+      body { font-family: Arial; padding: 20px; }
+      .order {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+
+  <h1>📋 Live Orders</h1>
+  <div id="orders"></div>
+
+  <!-- <script>
+  let previousOrderCount = 0;
+  const notificationSound = new Audio("public/images/Notify.mp4");
+
+  async function loadOrders() {
+    const res = await fetch("/orders");
+    const orders = await res.json();
+
+    const container = document.getElementById("orders");
+    container.innerHTML = "";
+
+    if (orders.length > previousOrderCount) {
+      if (previousOrderCount !== 0) {
+        notificationSound.play();
+        alert("🔔 New Order Received!");
+      }
     }
-  </style>
-</head>
-<body>
 
-<h1>📋 Live Orders</h1>
-<div id="orders"></div>
+    previousOrderCount = orders.length;
 
-<!-- <script>
-async function loadOrders() {
-  const res = await fetch("/orders");
-  const orders = await res.json();
+    orders.reverse().forEach(order => {
+      const div = document.createElement("div");
+      div.className = "order";
 
-  const container = document.getElementById("orders");
-  container.innerHTML = "";
+      div.innerHTML = `
+        <strong>Name:</strong> ${order.customerName} <br>
+        <strong>Table:</strong> ${order.tableNumber} <br>
+        <strong>Total:</strong> ₹${order.total} <br>
+        <strong>Time:</strong> ${order.time} <br>
+        <strong>Items:</strong>
+        <ul>
+          ${order.items.map(i => `<li>${i.name} x ${i.quantity}</li>`).join("")}
+        </ul>
+      `;
 
-  orders.reverse().forEach(order => {
-    const div = document.createElement("div");
-    div.className = "order";
-
-    div.innerHTML = `
-      <strong>Name:</strong> ${order.customerName} <br>
-      <strong>Table:</strong> ${order.tableNumber} <br>
-      <strong>Total:</strong> ₹${order.total} <br>
-      <strong>Time:</strong> ${order.time} <br>
-      <strong>Items:</strong>
-      <ul>
-        ${order.items.map(i => `<li>${i.name} x ${i.quantity}</li>`).join("")}
-      </ul>
-    `;
-
-    container.appendChild(div);
-  });
-}
-
-loadOrders();
-setInterval(loadOrders, 5000); // refresh every 5 sec
-</script> -->
-
-
-<script>
-let previousOrderCount = 0;
-const notificationSound = new Audio("https://www.soundjay.com/buttons/sounds/button-3.mp3");
-
-async function loadOrders() {
-  const res = await fetch("/orders");
-  const orders = await res.json();
-
-  const container = document.getElementById("orders");
-  container.innerHTML = "";
-
-  if (orders.length > previousOrderCount) {
-    if (previousOrderCount !== 0) {
-      notificationSound.play();
-      alert("🔔 New Order Received!");
-    }
+      container.appendChild(div);
+    });
   }
 
-  previousOrderCount = orders.length;
+  loadOrders();
+  setInterval(loadOrders, 5000);
+  </script> -->
 
-  orders.reverse().forEach(order => {
-    const div = document.createElement("div");
-    div.className = "order";
+  <script>
+    let previousOrderCount = 0;
+    const notificationSound = new Audio("public/images/Notify.mp4");
 
-    div.innerHTML = `
-      <strong>Name:</strong> ${order.customerName} <br>
-      <strong>Table:</strong> ${order.tableNumber} <br>
-      <strong>Total:</strong> ₹${order.total} <br>
-      <strong>Time:</strong> ${order.time} <br>
-      <strong>Items:</strong>
-      <ul>
-        ${order.items.map(i => `<li>${i.name} x ${i.quantity}</li>`).join("")}
-      </ul>
-    `;
+    async function toggleStatus(index) {
+      await fetch("/update-status", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ index })
+      });
 
-    container.appendChild(div);
-  });
-}
+      loadOrders();
+    }
 
-loadOrders();
-setInterval(loadOrders, 5000);
-</script>
+    async function loadOrders() {
+      const res = await fetch("/orders");
+      const orders = await res.json();
 
-</body>
-</html>
+      const container = document.getElementById("orders");
+      container.innerHTML = "";
+
+      if (orders.length > previousOrderCount) {
+        if (previousOrderCount !== 0) {
+          notificationSound.play();
+          alert("🔔 New Order Received!");
+        }
+      }
+
+      previousOrderCount = orders.length;
+
+      // Group by date
+      const grouped = {};
+
+      orders.forEach((order, index) => {
+        if (!grouped[order.date]) {
+          grouped[order.date] = [];
+        }
+        grouped[order.date].push({ ...order, index });
+      });
+
+      for (let date in grouped) {
+        const dateHeading = document.createElement("h2");
+        dateHeading.textContent = "📅 " + date;
+        container.appendChild(dateHeading);
+
+        grouped[date].reverse().forEach(order => {
+          const div = document.createElement("div");
+          div.className = "order";
+
+          div.innerHTML = `
+            <strong>Name:</strong> ${order.customerName} <br>
+            <strong>Table:</strong> ${order.tableNumber} <br>
+            <strong>Total:</strong> ₹${order.total} <br>
+            <strong>Time:</strong> ${order.time} <br>
+            <strong>Status:</strong>
+            <input type="checkbox"
+              ${order.completed ? "checked" : ""}
+              onchange="toggleStatus(${order.index})"> Completed
+            <br><br>
+            <strong>Items:</strong>
+            <ul>
+              ${order.items.map(i => `<li>${i.name} x ${i.quantity}</li>`).join("")}
+            </ul>
+          `;
+
+          if (order.completed) {
+            div.style.backgroundColor = "#e6ffe6";
+          }
+
+          container.appendChild(div);
+        });
+      }
+    }
+
+    loadOrders();
+    setInterval(loadOrders, 5000);
+    </script>
+
+  </body>
+  </html>

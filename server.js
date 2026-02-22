@@ -25,7 +25,9 @@ app.post("/order", (req, res) => {
   const orders = JSON.parse(fs.readFileSync("orders.json"));
   orders.push({
     ...newOrder,
-    time: new Date().toLocaleString()
+    time: new Date().toLocaleString(),
+    date: new Date().toLocaleDateString(),
+    completed: false
   });
 
   fs.writeFileSync("orders.json", JSON.stringify(orders, null, 2));
@@ -40,4 +42,15 @@ app.get("/orders", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
+});
+
+app.post("/update-status", (req, res) => {
+  const { index } = req.body;
+
+  const orders = JSON.parse(fs.readFileSync("orders.json"));
+  orders[index].completed = !orders[index].completed;
+
+  fs.writeFileSync("orders.json", JSON.stringify(orders, null, 2));
+
+  res.json({ message: "Status updated" });
 });

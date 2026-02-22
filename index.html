@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -11,7 +11,6 @@
   <div class="container">
     <h1 class="cafe-title">Demo Cafe</h1>
 
-    <!-- Coffee Section -->
     <h2>☕ Coffee</h2>
     <div class="menu-item">
       <div>
@@ -37,7 +36,6 @@
       <button onclick="addToCart('Latte', 140)">Add</button>
     </div>
 
-    <!-- Shakes Section -->
     <h2>🥤 Shakes</h2>
     <div class="menu-item">
       <div>
@@ -63,7 +61,6 @@
       <button onclick="addToCart('Strawberry Shake', 150)">Add</button>
     </div>
 
-    <!-- Snacks Section -->
     <h2>🍔 Snacks</h2>
     <div class="menu-item">
       <div>
@@ -89,7 +86,6 @@
       <button onclick="addToCart('Grilled Sandwich', 130)">Add</button>
     </div>
 
-    <!-- Cart Section -->
     <div class="cart">
       <h2>🛒 Your Order</h2>
       <ul id="cart-items"></ul>
@@ -101,6 +97,41 @@
       <button class="order-btn" onclick="placeOrder()">Place Order</button>
     </div>
 
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mai Tum Aur Chai</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <img src="public\images\logo.png" class="logo" alt="Cafe Logo">
+    <h1>Mai Tum Aur Chai</h1>
+    <p class="tagline">Cafe & Conversations</p>
+  </div>
+
+  <!-- MENU CONTAINER -->
+  <div class="container" id="menu-container"></div>
+
+  <!-- CART -->
+  <div class="cart">
+    <h2>🛒 Your Order</h2>
+    <ul id="cart-items"></ul>
+    <p><strong>Total: ₹<span id="total">0</span></strong></p>
+
+    <input type="text" id="customer-name" placeholder="Your Name">
+    <input type="text" id="table-number" placeholder="Table Number">
+
+    <button class="order-btn" onclick="placeOrder()">Place Order</button>
   </div>
 
   <script src="script.js"></script>
