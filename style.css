@@ -190,12 +190,101 @@ button:hover {
   bottom: 0;
 }
 
+.cart li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.cart li span {
+  flex: 1;
+  min-width: 0;
+}
+
+.cart li button {
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  background: #8b4513;
+  color: #fff;
+}
+
+.cart li button:hover {
+  background: #a0522d;
+}
+
+.cart li button:last-of-type {
+  background: #8b2020;
+}
+
+.cart li button:last-of-type:hover {
+  background: #a02828;
+}
+
+.instructions-label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  color: #d6a04d;
+}
+
+.cart textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 5px;
+  border: none;
+  resize: vertical;
+  min-height: 44px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 14px;
+  background: white;
+  color: #333;
+  outline: none;
+  display: block;
+  pointer-events: auto;
+  cursor: text;
+}
+
+.cart textarea:focus {
+  border: 2px solid #d6a04d;
+  padding: 6px;
+}
+
 input {
   width: 100%;
   padding: 8px;
   margin-top: 10px;
   border-radius: 5px;
   border: none;
+}
+
+.cart input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  background: white;
+  color: #333;
+  font-family: inherit;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  pointer-events: auto;
+  cursor: text;
+}
+
+.cart input:focus {
+  border: 2px solid #d6a04d;
+  padding: 6px;
 }
 
 .order-btn {

@@ -114,6 +114,7 @@
             <strong>Table:</strong> ${order.tableNumber} <br>
             <strong>Total:</strong> ₹${order.total} <br>
             <strong>Time:</strong> ${order.time} <br>
+            ${order.instructions ? `<strong>Instructions:</strong> ${order.instructions} <br>` : ''}
             <strong>Status:</strong>
             <input type="checkbox"
               ${order.completed ? "checked" : ""}
